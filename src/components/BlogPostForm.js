@@ -31,6 +31,16 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
       borderWidth: 1,
       borderColor: themeState.colors.border,
     },
+    inputContent: {
+      height: 250,
+      width: '90%',
+      fontSize: 18,
+      alignSelf: 'center',
+      marginBottom: 5,
+      paddingHorizontal: 10,
+      borderWidth: 1,
+      borderColor: themeState.colors.border,
+    },
     button: {
       fontSize: 24,
       margin: 10,
@@ -49,10 +59,10 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
       />
       {/* <Text style={styles.label}>Enter Content:</Text> */}
       <TextInput
-        style={{ height: 200, borderColor: 'gray', borderWidth: 1 }}
+        style={styles.inputContent}
         multiline={true}
         numberOfLines={7}
-        maxLength={50}
+        maxLength={250}
         placeholder={`Write your story...`}
         value={content}
         onChangeText={(text) => setContent(text)}

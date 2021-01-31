@@ -129,7 +129,7 @@ const AuthForm = ({ navigation, isSignIn }) => {
     buttonText: {
       color: 'white',
       fontWeight: 'bold',
-      fontSize: 18,
+      fontSize: 17,
     },
     switchText: {
       color: 'blue',
