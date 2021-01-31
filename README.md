@@ -32,4 +32,4 @@ My SMUA PCMOB final course project.
 
 ## Mockup Demo
 
-![mockup demo]()
+![mockup demo](https://github.com/boeykokchin/PCMOB7_chatStories/blob/master/assets/Mockup%20Demo.gif)
