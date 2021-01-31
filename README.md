@@ -4,7 +4,7 @@ My SMUA PCMOB final course project.
 
 ## Final Project Demo
 
-![Demo]()
+![demo](https://github.com/boeykokchin/PCMOB7_chatStories/blob/master/assets/PCMOB7_chatStories%20demo.gif)
 
 ## Ideation
 
@@ -29,4 +29,7 @@ My SMUA PCMOB final course project.
   - -> sqlite
   - -> python flask api
   - -> will very likely to run local dev with actual andriod mobile device (similar to my submission in PCMOB6)
-* thunkable_mock_up_link: https://x.thunkable.com/copy/bb4ed913bbbb886050c57a69691a86d8
+
+## Mockup Demo
+
+![mockup demo]()
