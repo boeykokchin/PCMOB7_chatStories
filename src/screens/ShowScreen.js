@@ -85,7 +85,7 @@ const ShowScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View>
         <Text style={{ fontSize: 20, color: 'orange' }}>
-          Story 1: The New Depression
+          Story 1: The New Great Depression
         </Text>
         <Text style={styles.title}>{fullStory1}</Text>
       </View>

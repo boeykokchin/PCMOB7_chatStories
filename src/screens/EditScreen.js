@@ -13,7 +13,7 @@ const EditScreen = ({ navigation, route }) => {
     <BlogPostForm
       // initialValues={{ title: blogPost.title, content: blogPost.content }}
       initialValues={{
-        title: 'Story 1: The New Depression',
+        title: 'Story 1: The New Great Depression',
         content: blogPost.content,
       }}
       onSubmit={(title, content) => {
