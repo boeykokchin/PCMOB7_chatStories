@@ -68,7 +68,7 @@ const BlogPostForm = ({ onSubmit, initialValues }) => {
         onChangeText={(text) => setContent(text)}
       />
       <Button
-        title='Save Post'
+        title='Save'
         style={styles.button}
         onPress={() => onSubmit(title, content)}
       />
