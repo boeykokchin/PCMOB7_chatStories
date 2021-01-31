@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import { StyleSheet } from "react-native";
-import { Context } from "../context/BlogContext";
-import BlogPostForm from "../components/BlogPostForm";
+import React, { useContext } from 'react';
+import { StyleSheet } from 'react-native';
+import { Context } from '../context/BlogContext';
+import BlogPostForm from '../components/BlogPostForm';
 
 const EditScreen = ({ navigation, route }) => {
   const id = route.params.id;
@@ -11,7 +11,11 @@ const EditScreen = ({ navigation, route }) => {
 
   return (
     <BlogPostForm
-      initialValues={{ title: blogPost.title, content: blogPost.content }}
+      // initialValues={{ title: blogPost.title, content: blogPost.content }}
+      initialValues={{
+        title: 'Story 1: The New Depression',
+        content: blogPost.content,
+      }}
       onSubmit={(title, content) => {
         editBlogPost(id, title, content, () => {
           navigation.pop();

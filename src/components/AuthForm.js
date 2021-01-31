@@ -79,7 +79,7 @@ const AuthForm = ({ navigation, isSignIn }) => {
             <Text style={styles.switchText}>
               {isSignIn
                 ? 'Register for a new account'
-                : 'Have and account? Sign in'}
+                : 'Already have an account? Log in'}
             </Text>
           </TouchableOpacity>
           <Text style={styles.errorText}>{errorText}</Text>

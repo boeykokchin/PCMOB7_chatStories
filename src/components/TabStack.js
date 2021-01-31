@@ -21,10 +21,10 @@ const Tab = createBottomTabNavigator();
 
 function BlogStack() {
   return (
-    <Stack.Navigator initialRouteName='Index'>
+    <Stack.Navigator initialRouteName='Embellishments'>
       <Stack.Screen
         component={IndexScreen}
-        name='Index'
+        name='Embellishments'
         options={{
           headerRight: () => (
             <TouchableOpacity
@@ -64,7 +64,8 @@ export default function TabStack() {
   return (
     <Tab.Navigator>
       <Tab.Screen name='Account' component={AccountScreen} />
-      <Tab.Screen name='Blog' component={BlogStack} />
+      <Tab.Screen name='Write' component={BlogStack} />
+      <Tab.Screen name='Read' component={ShowScreen} />
     </Tab.Navigator>
   );
 }
