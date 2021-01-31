@@ -1,12 +1,12 @@
-import createDataContext from "./createDataContext";
-import blog from "../api/blog";
+import createDataContext from './createDataContext';
+import blog from '../api/blog';
 
 const blogReducer = (state, action) => {
   // state === { data: object }
   // action === { type: 'add_blogpost' || 'edit_blogpost' || 'delete_blogpost' }
 
   switch (action.type) {
-    case "add_blogpost":
+    case 'add_blogpost':
       return [
         ...state,
         {
@@ -15,14 +15,14 @@ const blogReducer = (state, action) => {
           content: action.payload.content,
         },
       ];
-    case "delete_blogpost":
+    case 'delete_blogpost':
       // this returns a new array containing all blogPosts whose id !== action.payload, which is id
       return state.filter((blogPost) => blogPost.id !== action.payload);
-    case "edit_blogpost":
+    case 'edit_blogpost':
       return state.map((blogPost) => {
         return blogPost.id === action.payload.id ? action.payload : blogPost;
       });
-    case "get_blogposts":
+    case 'get_blogposts':
       return action.payload;
     default:
       return state;
@@ -34,40 +34,50 @@ const blogReducer = (state, action) => {
 const addBlogPost = (dispatch) => {
   return async (title, content, callback) => {
     //dispatch({ type: "add_blogpost", payload: { title, content } });
-    await blog.post("/create", { title, content });
+    await blog.post('/create', { title, content });
     if (callback) {
-        callback();
+      callback();
     }
   };
 };
 
+// const deleteBlogPost = (dispatch) => {
+//   return (id) => {
+//     dispatch({ type: "delete_blogpost", payload: id });
+//   };
+// };
 const deleteBlogPost = (dispatch) => {
-  return (id) => {
-    dispatch({ type: "delete_blogpost", payload: id });
+  // dispatch({ type: 'delete_blogpost', payload: id });
+  return async (id, callback) => {
+    await blog.delete(`/posts/${id}`);
+    if (callback) {
+      callback();
+    }
   };
 };
 
 const editBlogPost = (dispatch) => {
-  return (id, title, content, callback) => {
-    dispatch({
-      type: "edit_blogpost",
-      payload: { id, title, content },
-    });
+  // dispatch({
+  //   type: 'edit_blogpost',
+  //   payload: { id, title, content },
+  // });
+  return async (id, title, content, callback) => {
+    await blog.put(`/posts/${id}`, { title, content });
     if (callback) {
-        callback();
+      callback();
     }
   };
 };
 
 const getBlogPosts = (dispatch) => {
   return async () => {
-    const response = await blog.get("/posts");
-    dispatch({ type: "get_blogposts", payload: response.data });
+    const response = await blog.get(`/posts`);
+    dispatch({ type: 'get_blogposts', payload: response.data });
   };
 };
 
 export const { Context, Provider } = createDataContext(
   blogReducer,
   { addBlogPost, deleteBlogPost, editBlogPost, getBlogPosts },
-  [{ id: 1, title: "TEST POST", content: "TEST CONTENT" }]
+  [{ id: 1, title: 'TEST POST', content: 'TEST CONTENT' }]
 );

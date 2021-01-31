@@ -1,16 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   FlatList,
   TouchableOpacity,
-} from "react-native";
-import { EvilIcons } from "@expo/vector-icons";
-import { Context as BlogContext } from "../context/BlogContext";
-import { Context as ThemeContext } from "../context/ThemeContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useUsername } from "../hooks/useAPI";
+} from 'react-native';
+import { EvilIcons } from '@expo/vector-icons';
+import { Context as BlogContext } from '../context/BlogContext';
+import { Context as ThemeContext } from '../context/ThemeContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useUsername } from '../hooks/useAPI';
 
 const IndexScreen = ({ navigation }) => {
   const { state: blogState, deleteBlogPost, getBlogPosts } = useContext(
@@ -27,7 +27,7 @@ const IndexScreen = ({ navigation }) => {
   }, [error]);
 
   useEffect(() => {
-    const removeListener = navigation.addListener("focus", () => {
+    const removeListener = navigation.addListener('focus', () => {
       refresh(true);
     });
     return removeListener;
@@ -35,15 +35,16 @@ const IndexScreen = ({ navigation }) => {
 
   useEffect(() => {
     getBlogPosts();
-    const listener = navigation.addListener("didFocus", () => {
+    const listener = navigation.addListener('didFocus', () => {
       getBlogPosts();
     });
     return listener;
-  }, []);
+    // }, []);
+  });
 
   function signOut() {
-    AsyncStorage.removeItem("token");
-    navigation.navigate("SignIn");
+    AsyncStorage.removeItem('token');
+    navigation.navigate('SignIn');
   }
 
   const styles = StyleSheet.create({
@@ -53,13 +54,13 @@ const IndexScreen = ({ navigation }) => {
       borderColor: themeState.colors.border,
     },
     row: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
       paddingVertical: 20,
       paddingHorizontal: 10,
       borderTopWidth: 1,
-      borderColor: "gray",
+      borderColor: 'gray',
       backgroundColor: themeState.colors.background,
     },
     title: {
@@ -82,7 +83,7 @@ const IndexScreen = ({ navigation }) => {
             // item refers to indivudal blogPost elem object
             return (
               <TouchableOpacity
-                onPress={() => navigation.navigate("Show", { id: item.id })}
+                onPress={() => navigation.navigate('Show', { id: item.id })}
               >
                 <View style={styles.row}>
                   <Text style={styles.title}>
@@ -90,9 +91,9 @@ const IndexScreen = ({ navigation }) => {
                   </Text>
                   <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
                     <EvilIcons
-                      name="trash"
+                      name='trash'
                       size={24}
-                      color="black"
+                      color='black'
                       style={styles.icon}
                     />
                   </TouchableOpacity>
@@ -101,7 +102,7 @@ const IndexScreen = ({ navigation }) => {
             );
           }}
         />
-        <TouchableOpacity onPress={signOut} style={{ alignSelf: "center" }}>
+        <TouchableOpacity onPress={signOut} style={{ alignSelf: 'center' }}>
           <Text>Sign Out</Text>
         </TouchableOpacity>
       </View>

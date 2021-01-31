@@ -36,7 +36,7 @@ const AuthForm = ({ navigation, isSignIn }) => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
           <Text style={styles.title}>
-            {isSignIn ? 'Log in to blog' : 'Sign up for an account'}
+            {isSignIn ? 'Log in to chatStories' : 'Sign up for an account'}
           </Text>
           <Text style={styles.fieldTitle}>Username</Text>
           <TextInput
